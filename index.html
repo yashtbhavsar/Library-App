@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .btn-sm {
+            font-size: 0.8rem; /* Smaller button size */
+        }
+        .list-group-item {
+            border: none; /* Remove border */
+            padding: 0; /* Remove padding */
+            background: none; /* Remove background */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Hello, Welcome to Library</h1>
+        
+        <h2>Applications</h2>
+        <div class="input-group">
+            <input type="text" class="form-control" id="appName" placeholder="Application Name">
+            <div class="input-group-append">
+                <button class="btn btn-primary btn-sm" onclick="addApplication()">Add Application</button>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <select class="form-control" id="appDropdown" onchange="loadApplicationDetails()">
+                <option value="">Select an Application</option>
+            </select>
+        </div>
+
+        <h3>Application Details</h3>
+        <div id="appDetails" style="display:none;">
+            <button class="btn btn-info btn-sm" onclick="showSection('sanity')">Sanity Steps</button>
+            <button class="btn btn-info btn-sm" onclick="showSection('issues')">Frequent Issues</button>
+            <button class="btn btn-info btn-sm" onclick="showSection('cr')">Frequent CR Names</button>
+
+            <div id="sanitySection" style="display:none;">
+                <h4>Sanity Steps</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="sanityStep" placeholder="Sanity Step">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary btn-sm" onclick="addSanityStep()">Add Sanity Step</button>
+                    </div>
+                </div>
+                <ul id="sanityList" class="list-group"></ul>
+            </div>
+
+            <div id="issuesSection" style="display:none;">
+                <h4>Frequent Issues</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="issueName" placeholder="Issue Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary btn-sm" onclick="addIssue()">Add Issue</button>
+                    </div>
+                </div>
+                <ul id="issueList" class="list-group"></ul>
+            </div>
+
+            <div id="crSection" style="display:none;">
+                <h4>Frequent CR Names</h4>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="crName" placeholder="CR Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary btn-sm" onclick="addCRName()">Add CR Name</button>
+                    </div>
+                </div>
+                <ul id="crList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
